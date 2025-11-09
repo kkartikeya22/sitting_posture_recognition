@@ -5,7 +5,3 @@ keras==3.7.0
 opencv-python==4.10.0.84
 opencv-contrib-python==4.10.0.84
 flask==3.0.3
-mediapipe==0.10.14
-protobuf==4.25.5
-requests==2.32.3
-Pillow==10.4.0
