@@ -1,0 +1,66 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sitting Posture Analyzer</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>🧍‍♂️ Sitting Posture Analyzer</h1>
+    <p class="subtitle">Upload a single image or use your webcam. Bright, simple, fast.</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Single Image</h2>
+      <p>Drop an image or click to browse. We’ll detect keypoints and label the posture.</p>
+      <form id="uploadForm" class="upload">
+        <input id="fileInput" type="file" accept="image/*" />
+        <button type="submit">Analyze Image</button>
+      </form>
+      <div id="imageResult" class="result hidden">
+        <div class="result-row">
+          <img id="inputPreview" alt="Input preview" />
+          <img id="outputPreview" alt="Output (keypoints)" />
+        </div>
+        <div class="badges">
+          <span id="postureBadge" class="badge">Posture: —</span>
+          <span id="notesBadge" class="badge badge-secondary">Notes: —</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Live Webcam</h2>
+      <p>Side-by-side input and processed output. Click Start, sit sideways and look at the camera.</p>
+      <div class="wb-row">
+        <div class="wb-col">
+          <h3>Input</h3>
+          <video id="video" autoplay playsinline></video>
+        </div>
+        <div class="wb-col">
+          <h3>Output</h3>
+          <canvas id="canvasOut"></canvas>
+          <div class="badges">
+            <span id="livePosture" class="badge">Posture: —</span>
+            <span id="liveNotes" class="badge badge-secondary">Notes: —</span>
+          </div>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="startBtn">Start</button>
+        <button id="stopBtn" class="secondary">Stop</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Powered by your OpenPose Keras model</span>
+  </footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
